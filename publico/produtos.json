@@ -1,0 +1,16 @@
+{
+    "listaDeProdutos":[
+        {
+            "codigo": "PROD_A",
+            "preço": 45.5
+        },
+        {
+            "codigo": "PROD_B",
+            "preço": 60.4
+        },
+        {
+            "codigo": "PROD_C",
+            "preço": 100
+        }
+    ]
+}

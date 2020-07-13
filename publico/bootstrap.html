@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <style>
+        #colunas>div>div {
+            background-color: ghostwhite;
+            border: thin gray solid;
+        }
+        
+        ul>li {
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            color: aliceblue;
+            padding: 10px 0px 10px 0px;
+        }
+        
+        form {
+            padding: 2em;
+        }
+        
+        .nv4_card {
+            margin: 1em;
+            width: 300px;
+            background-color: aliceblue;
+        }
+        
+        .conteudoInvisivel {
+            visibility: hidden;
+        }
+        
+        .conteudoVisivel {
+            visibility: visible;
+            background: ghostwhite;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        td,th {
+            border: thin solid darkgray;
+            padding: 0.5em;
+        }
+        #menuContexto{
+            width: 150px;
+            z-index: 1000;
+            position: absolute;
+            display: none;
+        }
+    </style>
+    <script src="bootstrap.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="jquery_1.js"></script>
+</head>
+
+<body>
+    <!-- MENU DE CONTEXTO (SERÁ EXIBIDO NO BOTÃO DIREITO DO MOUSE)-->
+    <ul id="menuContexto" class='list-group'>
+    <button class="list-group-item" data-menu="cut">
+        <span class="la la-scissors"></span>
+        Cortar</button>
+    </ul>
+    <div style="background-color:dimgray">
+        <div class="container">
+            <h1>Hello, world!</h1> </div>
+    </div>
+    <ul class="container nav nav-tabs">
+        <li class="nav-item "> <a class="nav-link" href="#" role="button" onclick="alteraNavActive('nav1')">Grid</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" role="button" onclick="alteraNavActive('nav2')">Form</a> </li>
+        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu"> <a class="dropdown-item" href="#" onclick="alteraNavActive('nav4')">Jquery c/ Card</a> <a class="dropdown-item" href="panel.html">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div> <a class="dropdown-item" href="#">Separated link</a> </div>
+        </li>
+        <li class="nav-item"> <a class="nav-link" href="#" role="button" onclick="alteraNavActive('nav3')">Jquery</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="#" role="button" onclick="alteraNavActive('nav4')">Card Jquery</a>
+            <li class="nav-item"> <a class="nav-link active" href="#" role="button" onclick="alteraNavActive('nav5')">Ajax Jquery</a> </li>
+            <li class="nav-item"> <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> </li>
+    </ul>
+    <div class="conteudoInvisivel" id="nav1" style="display:none">
+        <div class="container" id="colunas">
+            <div class="row conteudo">
+                <div class="col-1 col-sm-2 col-md-1">1</div>
+                <div class="col-1 col-sm-10 col-md-7">7</div>
+                <div class="col-1 col-sm-12 col-md-4">4</div>
+            </div>
+        </div>
+    </div>
+    <div class="conteudoInvisivel" id="nav2" style="display:none">
+        <div class="container">
+            <div class="row conteudo">
+                <form role=form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-6" for="exampleInputEmail1">Email address</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> <small id="emailHelp" class="form-text text-muted ">We'll never share your email with anyone else.</small> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-10" for="exampleInputPassword1">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="exampleInputPassword1"> </div>
+                    </div>
+                    <div class="form-group form-check">
+                        <div class="col-sm-10">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="conteudoInvisivel" id="nav3" style="display:none">
+        <div class="container">
+            <div class="conteudo ">
+                <h2>Exemplo Jquery</h2>
+                <p class="parag"> Parágrafo 1</p>
+                <p class="parag"> Parágrafo 2</p>
+                <p class="parag"> Parágrafo 3</p>
+                <p class="parag"> Parágrafo 4</p>
+                <p class="parag"> Parágrafo 5</p>
+                <p class="parag"> Parágrafo 6</p>
+                <p>
+                    <button id='suc' class='btn btn-success col-sm-2'>Sucesso </button>
+                    <button class='btn btn-danger col-sm-2'>Oh Oh</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="conteudoInvisivel" id="nav4" style="display:none">
+        <div class="container">
+            <div class="row conteudo ">
+                <form role=form class="form-horizontal">
+                    <h4>Perfis com jquery e Bootsrap</h4>
+                    <div class="form-group"> </div>
+                    <div class="form-group">
+                        <label class="col" for="nv4_nome">Nome </label>
+                        <div class="col">
+                            <input type="text" class="form-control" id="nv4_nome"> </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6" for="nv4_sexo">Sexo </label>
+                        <div class="col">
+                            <select name="nv4_sexo" class="custom-select">
+                                <option value="m">Masculino</option>
+                                <option selected value="f">Feminino</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col" for="nv4_desc">Descrição </label>
+                        <div class="col">
+                            <textarea class="form-control" id="nv4_desc"> </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <p>
+                            <button id='nv4-btok' class='btn btn-primary col-sm-6'>Add perfil</button>
+                        </p>
+                    </div>
+                </form>
+                <!--
+                -->
+            </div>
+            <div class="card conteudo ">
+                <div class="card-header bg-primary text-white"> Perfis</div>
+                <div class="card-body form-inline" id="nv4_result">
+                    <!--
+                    <div class="card nv4_card">
+                        <div class="card-body"> <img class="card-img-bottom" src="female_avatar.png" alt="Card image" style="width:50%">
+                            <h4 class="card-title">Jane Doe</h4>
+                            <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p> <button class="btn btn-primary btn-perfil">See Profile</button> </div>
+                    </div>--></div>
+            </div>
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body"> Modal body.. </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteudoVisivel" id="nav5">
+        <div class="container">
+            <h4>Ajax + Jquery</h4>
+            <div class="card conteudo ">
+                <div class="card-header bg-primary text-white"> Resultado</div>
+                <div class="card-body form-inline" id="nv5_result">
+                    <!--
+                    <div class="card nv4_card">
+                        <div class="card-body"> <img class="card-img-bottom" src="female_avatar.png" alt="Card image" style="width:50%">
+                            <h4 class="card-title">Jane Doe</h4>
+                            <p class="card-text">Some example text some example text. Jane Doe is an architect and engineer</p> <button class="btn btn-primary btn-perfil">See Profile</button> </div>
+                    </div>--></div>
+            </div>
+            <p>
+                <button id='nv5-btok' class='btn btn-primary col-sm-2'>Carregar página</button>
+                <button id='nv5-btok2' class='btn btn-primary col-sm-4'>Carregar produtos JSON</button>
+            </p>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>
