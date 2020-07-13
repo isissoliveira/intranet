@@ -92,7 +92,9 @@ app.get('*', (req,res)=>{
         titulo: req.originalUrl
     })
 })
+//LINHA ABAIXO ADICIONADA PARA QUE POSSAMOS UTILIZAR QUALQUER PORTA RETORNADA PELO SERVIDOR EM QUE REALIZEMOS O DEPLOY DA APLICAÇÃO
+const port = process.env.PORT || 3000
 
-app.listen( 3000, ()=>{
-    console.log("Ouvindo pela porta 3000")
+app.listen( port, ()=>{
+    console.log(`Ouvindo pela porta ${port}`)
 })

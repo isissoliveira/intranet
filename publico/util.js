@@ -9,7 +9,8 @@ $(document).ready(function () {
         evento.preventDefault() // O SUBMIT NÃO VAI REALIZAR SUA AÇÃO DEFAULT (NÃO VAI ATUALIZAR A PÁGINA)
         const simb = document.getElementById("inputSimbolo").value
 
-        fetch(`http://localhost:3000/bolsavalores?simbolo=${simb}`).then((response) => {
+       //  fetch(`http://localhost:3000/bolsavalores?simbolo=${simb}`).then((response) => {
+        fetch(`/bolsavalores?simbolo=${simb}`).then((response) => {
             response.json().then((data) => {
                 if (data.erro_) {
                     console.log(`Há algo errado ${data.erro_.mensagem} codigo ${data.erro_.codigo}`)
